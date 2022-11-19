@@ -8,10 +8,10 @@ const PORT = 4000;
 
 const koa = new Koa();
 
-koa.use(static(path.resolve(process.cwd(), './source')));
+koa.use(static(path.resolve(process.cwd(), './source/download')));
 
 koa.use(mount('/', function (ctx) {
-    ctx.response.body = fs.readFileSync(path.resolve(process.cwd(), './source/download.html'), 'utf-8');
+    ctx.response.body = fs.readFileSync(path.resolve(process.cwd(), './source/download/download.html'), 'utf-8');
 }));
 
 koa.listen(PORT, function () {
