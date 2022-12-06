@@ -21,8 +21,10 @@
   "homepage": "https://github.com/w-t-w/nodejs-project#readme",
   "devDependencies": {
     "@types/node": "^18.11.9",
+    "easy_sock": "^0.4.1",
     "koa": "^2.13.4",
     "koa-mount": "^4.0.0",
-    "koa-static": "^5.0.0"
+    "koa-static": "^5.0.0",
+    "protocol-buffers": "^5.0.0"
   }
 }
