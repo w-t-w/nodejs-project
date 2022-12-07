@@ -21,14 +21,14 @@ const templateContext = vm.createContext({
 
 function createTemplate(templatePath) {
     templateCache[templatePath] = vm.runInContext(`
-        function render() {
+        (function render() {
             return function(data) {
                 with(data) {
                     return \`${fs.readFileSync(templatePath, 'utf-8')}\`
                 }
             }
-        }
-    `, templateContext)();
+        })();
+    `, templateContext);
     return templateCache[templatePath];
 }
 

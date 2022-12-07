@@ -1,6 +1,6 @@
 const path = require('path');
 
-const OUTPUT_DIR = path.resolve(__dirname, './build');
+const OUTPUT_DIR = path.resolve(process.cwd(), './source/list/static');
 
 const prodConfig = {
     mode: 'production',

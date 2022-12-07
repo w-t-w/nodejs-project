@@ -3,8 +3,7 @@ const path = require('path');
 const OUTPUT_DIR = path.resolve(__dirname, './build');
 
 const ssrConfig = {
-    mode: 'development',
-    devtool: "cheap-module-source-map",
+    mode: 'production',
     target: 'node',
     entry: {
         ssr_index: './list/backend/page/index.js'
@@ -15,7 +14,6 @@ const ssrConfig = {
         filename: '[name].js',
         chunkFilename: '[name].js',
         library: {
-            name: 'ssr',
             type: 'umd'
         }
     },

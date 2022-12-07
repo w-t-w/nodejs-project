@@ -1,5 +1,3 @@
-/*! For license information please see component_index.js.LICENSE.txt */
-
 /**
  * @license React
  * react-jsx-runtime.production.min.js

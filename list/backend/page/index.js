@@ -3,8 +3,7 @@ if (typeof window === 'undefined' || typeof self === 'undefined') {
     global.self = {};
 }
 
-const {nodejs_component} = require('../../component/build/component_index');
-const {List} = nodejs_component;
+const {List} = require('../../component/build/component_index');
 
 function App(columns) {
     return <List
@@ -15,7 +14,7 @@ function App(columns) {
         filter={() => {
             console.log('ssr-filter');
         }}
-    />
+    />;
 }
 
 module.exports = App;

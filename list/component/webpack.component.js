@@ -13,7 +13,6 @@ const prodConfig = {
         filename: '[name].js',
         chunkFilename: '[name].js',
         library: {
-            name: 'nodejs_component',
             type: 'umd'
         }
     },

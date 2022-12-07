@@ -5,7 +5,7 @@ const path = require('path');
 const reactServer = require('react-dom/server');
 
 const getData = require('./getData');
-const {ssr} = require('../build/ssr_index');
+const App = require('../build/ssr_index');
 const template = require('../../template/template')(path.resolve(process.cwd(), './list/template/index.html'));
 
 const PORT = 3000;
@@ -28,9 +28,7 @@ koa.use(mount('/', async ctx => {
     });
     ctx.response.status = 200;
     ctx.response.body = template({
-        renderString: reactServer.renderToString(
-            ssr(data)
-        ),
+        reactString: reactServer.renderToString(App(data)),
         reactData: data,
         sorted,
         filtered

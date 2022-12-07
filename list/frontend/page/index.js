@@ -1,15 +1,12 @@
 import {useState} from 'react';
 import {createRoot} from 'react-dom/client';
 
-import {nodejs_component} from '../../component/build/component_index';
-
-const {List} = nodejs_component;
-
+import {List} from '../../component/build/component_index';
 
 function App() {
-    const [columns, setColumns] = useState([JSON.parse(reactInitData)]);
-    const [filtered, setFiltered] = useState([reactInitFiltered]);
-    const [sorted, setSorted] = useState([reactInitSorted]);
+    const [columns, setColumns] = useState(reactInitData);
+    const [filtered, setFiltered] = useState(reactInitFiltered);
+    const [sorted, setSorted] = useState(reactInitSorted);
     return <List
         columns={columns}
         filter={(filterType) => {
@@ -18,7 +15,7 @@ function App() {
                 .then(json => {
                     setColumns(json);
                     setFiltered(filterType);
-                })
+                });
         }}
         sort={(sortType) => {
             fetch(`./data?sorted=${sortType}&filtered=${filtered}`)
@@ -26,10 +23,11 @@ function App() {
                 .then(json => {
                     setColumns(json);
                     setSorted(sortType);
-                })
+                });
         }}
     />;
 }
 
-const {render} = createRoot(document.getElementById('react-app'));
-render(<App/>);
+const root = createRoot(document.getElementById('react-app'));
+
+root.render(<App/>);

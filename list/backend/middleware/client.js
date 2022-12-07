@@ -5,7 +5,7 @@ const path = require('path');
 
 const {List, Sort} = pb(fs.readFileSync(path.resolve(process.cwd(), './list/proto/list.proto')));
 
-const PORT = 3000;
+const PORT = 4000;
 
 const easySock = new EasySock({
     ip: '127.0.0.1',
@@ -35,7 +35,7 @@ easySock.encode = (data, seq) => {
 };
 
 easySock.decode = buffer => {
-    const seq = buffer.writeInt32BE();
+    const seq = buffer.readInt32BE();
     const result = List.decode(buffer.slice(8));
     return {
         seq,
