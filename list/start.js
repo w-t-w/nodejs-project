@@ -11,7 +11,7 @@ const {List, Sort} = pb(fs.readFileSync(path.resolve(__dirname, './proto/list.pr
 
 const rpcServer = server(Sort, List);
 rpcServer.createServer((request, response) => {
-    const {result: {sorted, filtered}} = request;
+    const {body: {sorted, filtered}} = request;
     response.end({
         columns: mockColumns.sort((a, b) => {
             switch (sorted) {
