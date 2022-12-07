@@ -4,15 +4,18 @@ const OUTPUT_DIR = path.resolve(__dirname, './build');
 
 const prodConfig = {
     mode: 'production',
-    target: 'web',
     entry: {
-        web_index: './list/frontend/page/index.js'
+        component_index: './list/component/index.js'
     },
     output: {
         path: OUTPUT_DIR,
         publicPath: '',
         filename: '[name].js',
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
+        library: {
+            name: 'nodejs_component',
+            type: 'umd'
+        }
     },
     stats: {
         preset: 'minimal'

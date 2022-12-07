@@ -4,7 +4,11 @@
   "description": "nodejs project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "backend": "webpack --config=./list/backend/webpack.ssr.config.js",
+    "frontend": "webpack --config=./list/frontend/webpack.config.js",
+    "component": "webpack --config=./list/component/webpack.component.js",
+    "server": "node ./list/start.js",
+    "middleware": "node ./list/backend/middleware/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,11 +24,27 @@
   },
   "homepage": "https://github.com/w-t-w/nodejs-project#readme",
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
     "@types/node": "^18.11.9",
+    "babel-loader": "^9.1.0",
+    "core-js": "^3.26.1",
     "easy_sock": "^0.4.1",
     "koa": "^2.13.4",
     "koa-mount": "^4.0.0",
     "koa-static": "^5.0.0",
-    "protocol-buffers": "^5.0.0"
-  }
+    "protocol-buffers": "^5.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }
